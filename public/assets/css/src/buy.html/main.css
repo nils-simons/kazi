@@ -1,0 +1,26 @@
+#prd-list {
+    display: grid;
+    grid-template-columns: auto auto;
+    /* width: 100vw; */
+    padding: 16px;
+    grid-gap: 10px;
+}
+#prd-list>div {
+    padding-top: 8px;
+    text-align: center;
+    border: 2px solid var(--nav-background);
+    border-radius: 6px;
+}
+
+#prd-list>div>img {
+    width: 30vw;
+}
+
+#prd-list>div>div {
+    padding: 12px;
+    /* width: 100%; */
+    background-color: rgba(66, 66, 212, 0.931);
+    color: var(--nav-background);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
