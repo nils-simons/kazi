@@ -1,0 +1,28 @@
+hr {
+    width: 40vw;
+    height: 2px;
+    border: none;
+    background-color: var(--text);
+    border-radius: 20px;
+}
+
+main {
+    margin-top: 5vh;
+    text-align: center;
+}
+
+video {
+    width: 80vw;
+    border-radius: 10px;
+}
+
+input {
+    margin-top: 3vh;
+    border: none;
+    border-bottom: 2px solid var(--text);
+    background-color: var(--nav-background);
+    font-size: 3rem;
+    width: 52vw;
+    outline: none;
+    text-transform: uppercase;
+}

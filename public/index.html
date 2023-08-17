@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Kazi</title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="./assets/css/utils/global.css">
+    <link rel="stylesheet" href="./assets/css/src/index.html/header.css">
+    <link rel="stylesheet" href="./assets/css/src/index.html/main.css">
+
+    <!-- JS -->
+    <!-- update the version number as needed -->
+    <script src="/__/firebase/10.1.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script src="/__/firebase/10.1.0/firebase-auth-compat.js"></script>
+    <script src="/__/firebase/10.1.0/firebase-firestore-compat.js"></script>
+    <script src="/__/firebase/10.1.0/firebase-storage-compat.js"></script>
+    <script src="/__/firebase/10.1.0/firebase-analytics-compat.js"></script>
+    <script src="/__/firebase/10.1.0/firebase-performance-compat.js"></script>
+    <script src="/__/firebase/init.js?useEmulator=false"></script>
+
+    <script src="./assets/js/libs/qr-scanner.min.js"></script>
+
+    <script defer src="./assets/js/utils/auth.js"></script>
+
+    <script defer src="./assets/js/src/index.html/scan.js"></script>
+    <script defer src="./assets/js/src/index.html/code.js"></script>
+
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img src="./assets/img/logo.png" alt="Kazi Logo">
+      </a>
+
+      <img src="./assets/img/no-pp.png" alt="">
+    </header>
+    <main>
+      <div>
+        <video id="qr-cam"></video>
+      </div>
+      <hr>
+      <input id="m-code" type="text" maxlength="6">
+    </main>
+  </body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
+  </script>
+</html>

@@ -1,0 +1,15 @@
+header {
+    padding: 6px 12px;
+    background-color: var(--nav-background);
+    align-items: center;
+    display: flex;
+}
+
+header>a {
+    margin: 20px;
+    margin-left: 0px;
+    margin-right: 12px;
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: var(--text);
+}

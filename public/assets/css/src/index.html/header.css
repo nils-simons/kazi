@@ -1,0 +1,21 @@
+header {
+    padding: 8px 14px;
+    background-color: var(--nav-background);
+    height: auto;
+    position: relative;
+}
+header>a>img {
+    /* float: left; */
+    width: 12%;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+header>img {
+    float: right;
+    border-radius: 50%;
+    width: 10%;
+}
