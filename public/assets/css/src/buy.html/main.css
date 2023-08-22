@@ -10,10 +10,17 @@
     text-align: center;
     border: 2px solid var(--nav-background);
     border-radius: 6px;
+    transition: .2s;
+}
+
+#prd-list>div:hover {
+    scale: .9;
+    transition: .2s;
 }
 
 #prd-list>div>img {
-    width: 30vw;
+    height: 10vh;
+    /* width: 30vw; */
 }
 
 #prd-list>div>div {
