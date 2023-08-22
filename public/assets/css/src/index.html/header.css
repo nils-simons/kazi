@@ -14,8 +14,9 @@ a {
     text-decoration: none;
 }
 
-header>img {
+header>i {
+    font-size: 1.8rem;
     float: right;
-    border-radius: 50%;
-    width: 10%;
+    /* border-radius: 50%;
+    width: 10%; */
 }

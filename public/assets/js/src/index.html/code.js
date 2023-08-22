@@ -1,5 +1,3 @@
-regEx = /[A-Z]+[0-9]/g
-
 
 async function checkCode(code) {
     if (code.length !== 6) {

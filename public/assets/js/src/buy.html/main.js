@@ -6,3 +6,7 @@ db.collection('dispensers').doc(dispenser_id).get().then((doc) => {
     var data = doc.data();
     document.getElementById('dis-name').textContent = data.name;
 })
+
+function buy(id) {
+    
+}
