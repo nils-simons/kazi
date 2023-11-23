@@ -1,0 +1,29 @@
+body {
+    background-color: var(--white);
+}
+
+main {
+    text-align: center;
+}
+
+.action {
+    position: absolute;
+    bottom: 20px;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+}
+
+.action>button {
+    margin-top: 14px;
+    width: 85%;
+    background-color: var(--green);
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    color: var(--white);
+    -webkit-box-shadow: 2px 4px 13px 5px rgba(0,0,0,0.3); 
+    box-shadow: 2px 4px 13px 5px rgba(0,0,0,0.3);
+    font-size: 1.1rem;
+    font-weight: 600;
+}

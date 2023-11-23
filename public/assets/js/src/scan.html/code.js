@@ -9,3 +9,14 @@ function handleInput(nextIndex) {
         }
     }
 }
+
+d.getElementById('last-input-code').addEventListener('keyup', (e) => {    
+    var codeL = Array.from(d.getElementsByClassName('uid-input'));
+
+    var fullCode = '';
+    for (let i = 0; i < codeL.length; i++) {
+        const ccd = codeL[i];
+        var fullCode = fullCode + ccd.value;
+    }
+    checkCode(fullCode)
+})

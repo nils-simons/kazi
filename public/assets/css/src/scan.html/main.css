@@ -2,22 +2,21 @@ body {
     background-color: var(--white);
 }
 
-.sec-code {
+section {
+    display: none;
+}
+
+#sec-code {
     position: relative;
     top: 32vh;
     text-align: center;
 
 }
 
-.code-fields {
-    /* display: grid;
-    grid-template-columns: auto auto auto auto auto auto; */
-}
-
 .code-fields>input {
     text-align: center;
     font-size: 2.8rem;
-    width: 20px;
+    width: 30px;
     border: none;
     border-radius: 4px;
     padding: 12px 12px;
@@ -25,11 +24,27 @@ body {
     background-color: var(--light-green);
     color: var(--dark-green);
 }
-#qr-opt {
+#qr-opt, #code-opt {
     margin-top: 20px;
     background-color: transparent;
     border: none;
     color: var(--green);
     text-decoration: underline;
     font-weight: 600;
+}
+
+
+#sec-qr {
+    position: relative;
+    top: 12vh;
+    text-align: center;
+}
+
+#scanner {
+    text-align: center;    
+}
+
+#cam {
+    border-radius: 10px;
+    width: 80vw;
 }

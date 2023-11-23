@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Kazi - Scan</title>
 
     <!-- CSS -->
@@ -23,18 +23,27 @@
     <script src="/__/firebase/10.1.0/firebase-performance-compat.js"></script>
     <script src="/__/firebase/init.js?useEmulator=false"></script>
 
-    <!-- <script src="./assets/js/libs/qr-scanner.min.js"></script> -->
+    <script src="./assets/js/libs/qr-scanner-worker.min.js"></script>
+    <script src="./assets/js/libs/qr-scanner.min.js"></script>
 
     <script defer src="./assets/js/utils/auth.js"></script>
 
+    <script defer src="./assets/js/src/scan.html/main.js"></script>
     <script defer src="./assets/js/src/scan.html/code.js"></script>
+    <script defer src="./assets/js/src/scan.html/qr.js"></script>
 </head>
 <body>
     <header>
         <a href="/"><i class="fa-solid fa-arrow-left"></i></a>
     </header>
     <main>
-        <section class="sec-code">
+        <section id="sec-qr">
+            <h1>Scan a QR Code</h1>
+            <div id="scanner">
+                <video id="cam"></video>
+            </div>            <button id="code-opt">or enter a code.</button>
+        </section>
+        <section id="sec-code">
             <h2>Enter a code</h2>
             <div class="code-fields">
                 <input type="text" class="uid-input" maxlength="1" oninput="handleInput(1)" />
@@ -42,7 +51,7 @@
                 <input type="text" class="uid-input" maxlength="1" oninput="handleInput(3)" />
                 <input type="text" class="uid-input" maxlength="1" oninput="handleInput(4)" />
                 <input type="text" class="uid-input" maxlength="1" oninput="handleInput(5)" />
-                <input type="text" class="uid-input" maxlength="1" oninput="handleInput(6)" />
+                <input id="last-input-code" type="text" class="uid-input" maxlength="1" oninput="handleInput(6)" />
             </div>
             <button id="qr-opt">or scan qr code.</button>
         </section>
