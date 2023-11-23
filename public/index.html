@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./assets/css/src/index.html/main.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 
 
     <!-- JS -->
@@ -27,32 +28,33 @@
     <script src="/__/firebase/10.1.0/firebase-performance-compat.js"></script>
     <script src="/__/firebase/init.js?useEmulator=false"></script>
 
-    <script src="./assets/js/libs/qr-scanner.min.js"></script>
+    <!-- <script src="./assets/js/libs/qr-scanner.min.js"></script> -->
 
     <script defer src="./assets/js/utils/auth.js"></script>
 
-    <script defer src="./assets/js/src/index.html/scan.js"></script>
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+
+    <script defer src="./assets/js/src/index.html/map.js"></script>
+
+
+    <!-- <script defer src="./assets/js/src/index.html/scan.js"></script>
     <script defer src="./assets/js/src/index.html/code.js"></script>
-    <script defer src="./assets/js/src/index.html/logout.js"></script>
+    <script defer src="./assets/js/src/index.html/logout.js"></script> -->
 
   </head>
   <body>
     <header>
-      <a href="/">
-        <img src="./assets/img/logo.png" alt="Kazi Logo">
-      </a>
-
-      <i id="logout" class="fa-solid fa-right-from-bracket"></i>
+      <button id="ham-menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </header>
     <main>
-      <a id="map-i" href="/map"><i class="fa-solid fa-map"></i></a>
-      <br>
-      <br>
-      <div>
-        <video id="qr-cam"></video>
+      <div id='map' style='width: 100vw; height: 100vh;'></div>
+      <div class="action">
+        <button>SCAN QR</button>
+        <button id="code-btn">ENTER CODE</button>
       </div>
-      <hr>
-      <input id="m-code" type="text" maxlength="6">
     </main>
   </body>
   <script>

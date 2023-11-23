@@ -11,9 +11,12 @@ body {
 }
 
 :root {
-    --background: #f5f5f5;
-    --nav-background: #dfdfdf;
-    --text: #1a1a1a;
+    --white: #DAD7CD;
+    --light-green: #A3B18A;
+    --medium-green: #588157;
+    --green: #3A5A40;
+    --dark-green: #344E41;
+    --black: #0a0a0a;
 }
 
 

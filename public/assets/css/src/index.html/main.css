@@ -1,39 +1,25 @@
-hr {
-    width: 40vw;
-    height: 2px;
-    border: none;
-    background-color: var(--text);
-    border-radius: 20px;
-}
-
-main {
-    position: relative;
-    margin-top: 5vh;
-    text-align: center;
-}
-
-video {
-    width: 80vw;
-    border-radius: 10px;
-}
-
-#map-i {
+.action {
     position: absolute;
-    top: 0;
-    left: 0;
-    padding-left: 14px;
-    font-size: 1.4rem;
-    color: black;
-    text-decoration: none;
+    bottom: 20px;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
 }
 
-input {
-    margin-top: 3vh;
+.action>button {
+    margin-top: 14px;
+    width: 85%;
+    background-color: var(--green);
     border: none;
-    border-bottom: 2px solid var(--text);
-    background-color: var(--nav-background);
-    font-size: 3rem;
-    width: 52vw;
-    outline: none;
-    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 14px;
+    color: var(--white);
+    -webkit-box-shadow: 2px 4px 13px 5px rgba(0,0,0,0.3); 
+    box-shadow: 2px 4px 13px 5px rgba(0,0,0,0.3);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#code-btn {
+    background-color: var(--light-green);
 }
