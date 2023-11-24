@@ -33,7 +33,7 @@ exports.createPaymentSession = onRequest({ cors: true }, async (req, res) => {
             price: data.price,
         },
         success_url: `https://kazi.nilssimons.me/success?user=${data.user}&dispenser=${data.dispenser}`,
-        cancel_url: `https://kazi.nilssimons.me/error?user=${data.user}&dispenser=${data.dispenser}`,
+        cancel_url: `http://kazi.nilssimons.me/buy?dispenser_id=${data.dispenser}&reffer=cancel_buy`,
     });
     
     return res.status(200).json({url: session.url});
@@ -53,7 +53,6 @@ exports.paymentSessionCompleted = onRequest({ cors: true }, async (req, res) => 
         res.status(405)
     }
 
-
     const disRef = admin.firestore().collection('dispensers').doc(data.data.object.metadata.dispenser);
     const doc = await disRef.get();
     var disData = doc.data();
@@ -62,20 +61,12 @@ exports.paymentSessionCompleted = onRequest({ cors: true }, async (req, res) => 
         product: disData.product
     });
 
-    var disResp = await axios.request({
-        method: 'get',
-        maxBodyLength: Infinity,
-        url: disData.endpoint,
-        headers: { 
-            'Content-Type': 'application/json',
-            'Autorization': `Bearer ${disData.token}`
-        },
-        data : {}
+    admin.database().ref(`/${disRef.id}`).update({
+        dispense: parseInt(data.data.object.metadata.quantity)
     })
 
     
     await admin.firestore().collection('users').doc(data.data.object.metadata.user).collection('purchases').doc().set({
-        endpointData: disResp.data,
         date: new Date(),
         productName: data.data.object.metadata.product,
         productAmount: data.data.object.metadata.quantity,

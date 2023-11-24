@@ -28,8 +28,8 @@
           "sizes": "48x48"
         }
       ],
-    "theme_color": "#f5f5f5",
-    "background_color": "#f5f5f5",
+    "theme_color": "#DAD7CD",
+    "background_color": "#DAD7CD",
     "display": "fullscreen",
     "orientation": "portrait"
 }

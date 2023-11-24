@@ -62,8 +62,7 @@ map.on('load', () => {
         })
         
     })
-
-    
+    d.getElementsByClassName('mapboxgl-ctrl-logo')[0].style.display = 'none';
 });
 
 
