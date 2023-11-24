@@ -3,7 +3,7 @@
     position: relative;
     width: 80px;
     height: 80px;
-    color: var(--text);
+    color: var(--green);
 }
 
 .lds-ellipsis div {
@@ -12,7 +12,7 @@
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: var(--text);
+    background: var(--green);
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 

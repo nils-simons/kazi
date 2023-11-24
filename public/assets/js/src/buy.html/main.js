@@ -24,4 +24,21 @@ db.collection('dispensers').doc(dis_id).get()
     var res = await res.json();
     console.log(res)
     d.getElementById('place').textContent = res.address.PlaceName
+
+    d.getElementById('amount').innerHTML = ''
+    for (let i = 0; i < DISPENSER_DATA.product.stock; i++) {
+        d.getElementById('amount').innerHTML += `
+        <option value="${i+1}">${i+1}</option>
+        `
+        
+    }
+
+    d.getElementById('product').textContent = DISPENSER_DATA.product.name
+    d.getElementById('price').textContent = DISPENSER_DATA.product.price.toFixed(2) + ' €'
+
+    d.getElementById('loader').style.display = 'none';
+})
+
+d.getElementById('amount').addEventListener('change', (e) => {
+    d.getElementById('price').textContent = (DISPENSER_DATA.product.price * parseInt(e.target.value)).toFixed(2) + ' €'
 })

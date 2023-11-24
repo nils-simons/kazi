@@ -1,19 +1,88 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
-
 const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 
+const axios = require('axios');
+const admin = require('firebase-admin');
+admin.initializeApp();
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+const stripe = require("stripe")('sk_test_51NgNsFHS5jXyHOGy69LH4E7Sq5Le7aQusKIyH9UVb5hRko0VP2YXXtNDwC9AmNX4ebEQWE266UhTC8jGa9USjEGR003XiIvHes');
+
+
+exports.createPaymentSession = onRequest({ cors: true }, async (req, res) => {
+    console.log('------------------------------- NEW REQUEST -------------------------------');
+    res.set('Access-Control-Allow-Origin', '*');
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method Not Allowed' });
+    }
+    const data = req.body;
+    res.setHeader('Content-Type', 'application/json');
+    const session = await stripe.checkout.sessions.create({
+        line_items: [{
+            price: data.prodPrice,
+            quantity: data.prodAmount
+          }
+        ],
+        mode: 'payment',
+        metadata: {
+            user: data.user,
+            dispenser: data.dispenser,
+            quantity: parseInt(data.prodAmount),
+            product: data.name,
+            price: data.price,
+        },
+        success_url: `https://kazi.nilssimons.me/success?user=${data.user}&dispenser=${data.dispenser}`,
+        cancel_url: `https://kazi.nilssimons.me/error?user=${data.user}&dispenser=${data.dispenser}`,
+    });
+    
+    return res.status(200).json({url: session.url});
+});
+
+
+exports.paymentSessionCompleted = onRequest({ cors: true }, async (req, res) => {
+    console.log('------------------------------- NEW REQUEST -------------------------------');
+    res.set('Access-Control-Allow-Origin', '*');
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method Not Allowed' });
+    }
+    const data = req.body;
+    res.setHeader('Content-Type', 'application/json');
+    
+    if (data.data.object.status !== 'complete' && data.data.object.payment_status !== 'paid') {
+        res.status(405)
+    }
+
+
+    const disRef = admin.firestore().collection('dispensers').doc(data.data.object.metadata.dispenser);
+    const doc = await disRef.get();
+    var disData = doc.data();
+    disData.product.stock = (parseInt(disData.product.stock) - parseInt(data.data.object.metadata.quantity))
+    await disRef.update({
+        product: disData.product
+    });
+
+    var disResp = await axios.request({
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: disData.endpoint,
+        headers: { 
+            'Content-Type': 'application/json',
+            'Autorization': `Bearer ${disData.token}`
+        },
+        data : {}
+    })
+
+    
+    await admin.firestore().collection('users').doc(data.data.object.metadata.user).collection('purchases').doc().set({
+        endpointData: disResp.data,
+        date: new Date(),
+        productName: data.data.object.metadata.product,
+        productAmount: data.data.object.metadata.quantity,
+        productPrice: data.data.object.metadata.price,
+    })
+
+    return res.status(200).json({
+        success: true
+    });
+});

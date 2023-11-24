@@ -7,6 +7,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/utils/global.css">
+    <link rel="stylesheet" href="./assets/css/utils/loader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
 
@@ -32,20 +33,29 @@
 
     <script defer src="./assets/js/src/buy.html/map.js"></script>
     <script defer src="./assets/js/src/buy.html/main.js"></script>
+    <script defer src="./assets/js/src/buy.html/buy.js"></script>
 </head>
 <body>
+    <div id="loader">
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    </div>
     <header>
         <a href="/"><i class="fa-solid fa-arrow-left"></i></a>
         <div id="map"></div>
     </header>
     <main>
         <h2>Automat an der <span id="place"></span></h2>
-        <div>
-
+        <div class="content">
+            <select id="amount">
+            </select>
+            <span>x</span>
+            <span id="product"></span>
         </div>
         <div class="action">
-            <button>BUY</button>
+            <button id="buy">BUY</button>
         </div>
+        <br>
+        <span id="price"></span>
     </main>
 </body>
 </html>
