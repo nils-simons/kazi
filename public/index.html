@@ -28,8 +28,6 @@
     <script src="/__/firebase/10.1.0/firebase-performance-compat.js"></script>
     <script src="/__/firebase/init.js?useEmulator=false"></script>
 
-    <!-- <script src="./assets/js/libs/qr-scanner.min.js"></script> -->
-
     <script defer src="./assets/js/utils/auth.js"></script>
 
     <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
@@ -37,11 +35,7 @@
 
     <script defer src="./assets/js/src/index.html/map.js"></script>
     <script defer src="./assets/js/src/index.html/action.js"></script>
-
-
-    <!-- <script defer src="./assets/js/src/index.html/scan.js"></script>
-    <script defer src="./assets/js/src/index.html/code.js"></script>
-    <script defer src="./assets/js/src/index.html/logout.js"></script> -->
+    <script defer src="./assets/js/src/index.html/popup.js"></script>
 
   </head>
   <body>
@@ -53,8 +47,33 @@
     <main>
       <section>
         <div id="shadow-overlay"></div>
-        <div class="content-overlay">
-          <!-- <h1>Some Data</h1> -->
+        <div id="content-overlay" class="overlay-open">
+
+          <div class="profile">
+            <div>
+              <img id="pp-img" src="./assets/img/no-pp.png">
+            </div>
+            <div>
+              <span id="pp-name">Nils Simons</span>
+              <br>
+              <span><i class="fa-regular fa-circle-check"></i> Verifiziert</span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a href="/settings">
+              Einstellungen <i class="fa-solid fa-chevron-right"></i>
+            </a>
+
+            <a href="/history">
+              Kaufverlauf <i class="fa-solid fa-chevron-right"></i>
+            </a>
+          </div>
+
+          <div class="logout-container">
+            <button id="logout"><i class="fa-solid fa-arrow-right-to-bracket"></i> LOGOUT</button>
+          </div>
+
         </div>
       </section>
       <div id='map' style='width: 100vw; height: 100vh;'></div>
