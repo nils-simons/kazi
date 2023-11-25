@@ -18,3 +18,18 @@ shadow.addEventListener('click', (e) => {
 d.getElementById('ham-menu').addEventListener('click', (e) => {
     openPopup()
 })
+
+
+d.getElementById('logout').addEventListener('click', (e) => {
+    e.target.textContent = '...';
+    firebase.auth().signOut()
+});
+
+
+
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        d.getElementById('pp-name').textContent = auth.currentUser.displayName
+        d.getElementById('pp-img').src = auth.currentUser.photoURL
+    }
+});

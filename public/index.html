@@ -28,7 +28,7 @@
     <script src="/__/firebase/10.1.0/firebase-performance-compat.js"></script>
     <script src="/__/firebase/init.js?useEmulator=false"></script>
 
-    <script defer src="./assets/js/utils/auth.js"></script>
+    <script src="./assets/js/utils/auth.js"></script>
 
     <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
@@ -36,7 +36,6 @@
     <script defer src="./assets/js/src/index.html/map.js"></script>
     <script defer src="./assets/js/src/index.html/action.js"></script>
     <script defer src="./assets/js/src/index.html/popup.js"></script>
-    <script defer src="./assets/js/src/index.html/logout.js"></script>
 
   </head>
   <body>
@@ -55,9 +54,9 @@
               <img id="pp-img" src="./assets/img/no-pp.png">
             </div>
             <div>
-              <span id="pp-name">Nils Simons</span>
+              <span id="pp-name"></span>
               <br>
-              <span><i class="fa-regular fa-circle-check"></i> Verifiziert</span>
+              <span id="pp-verif"><i class="fa-regular fa-circle-check"></i> Verifiziert</span>
             </div>
           </div>
 
