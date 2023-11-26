@@ -68,6 +68,7 @@ exports.paymentSessionCompleted = onRequest({ cors: true }, async (req, res) => 
     
     await admin.firestore().collection('users').doc(data.data.object.metadata.user).collection('purchases').doc().set({
         date: new Date(),
+        dispenser: disRef.id,
         productName: data.data.object.metadata.product,
         productAmount: data.data.object.metadata.quantity,
         productPrice: data.data.object.metadata.price,
