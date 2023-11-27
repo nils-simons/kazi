@@ -33,6 +33,7 @@
     <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
 
+    <script defer src="./assets/js/src/index.html/connection.js"></script>
     <script defer src="./assets/js/src/index.html/map.js"></script>
     <script defer src="./assets/js/src/index.html/action.js"></script>
     <script defer src="./assets/js/src/index.html/popup.js"></script>
@@ -45,6 +46,14 @@
       </button>
     </header>
     <main>
+
+      <section id="no-connection">
+        <div>
+          <i class="fa-solid fa-wifi"></i>
+          <h2>No Connection</h2>
+        </div>
+      </section>
+
       <section>
         <div id="shadow-overlay"></div>
         <div id="content-overlay" class="overlay-open">

@@ -30,7 +30,13 @@ db.collection('dispensers').doc(dis_id).get()
         d.getElementById('amount').innerHTML += `
         <option value="${i+1}">${i+1}</option>
         `
-        
+    }
+
+    if (DISPENSER_DATA.product.stock < 1) {
+        d.getElementById('content').style.display = 'none';
+        d.getElementById('oos').style.display = 'block';
+        d.getElementById('buy').disabled = true;
+        d.getElementById('buy').textContent = 'Out of Stock';
     }
 
     d.getElementById('product').textContent = DISPENSER_DATA.product.name
