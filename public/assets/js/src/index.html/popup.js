@@ -27,7 +27,12 @@ d.getElementById('logout').addEventListener('click', (e) => {
 
 
 
-auth.onAuthStateChanged((user) => {
+auth.onAuthStateChanged(async (user) => {
+    const userRef = await firebase.firestore().collection('users').doc(user.uid).get();
+    const userData = userRef.data();
+    if (userData && userData.admin) {
+        d.getElementById('admin').style.display = 'block';
+    }
     if (user) {
         d.getElementById('pp-name').textContent = auth.currentUser.displayName
         d.getElementById('pp-img').src = auth.currentUser.photoURL
