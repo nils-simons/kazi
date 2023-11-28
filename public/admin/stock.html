@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Kazi - Admin | Calib</title>
+    <title>Kazi - Admin | Stock</title>
     <!-- CSS -->
 
     <link rel="stylesheet" href="../assets/css/utils/global.css">
-    <link rel="stylesheet" href="../assets/css/src/admin/calib.html/header.css">
-    <link rel="stylesheet" href="../assets/css/src/admin/calib.html/main.css">
+    <link rel="stylesheet" href="../assets/css/src/admin/stock.html/header.css">
+    <link rel="stylesheet" href="../assets/css/src/admin/stock.html/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 
     <!-- JS -->
@@ -17,25 +17,27 @@
     <!-- include only the Firebase features as you need -->
     <script src="/__/firebase/10.1.0/firebase-auth-compat.js"></script>
     <script src="/__/firebase/10.1.0/firebase-firestore-compat.js"></script>
-    <script src="/__/firebase/10.1.0/firebase-database-compat.js"></script>
     <script src="/__/firebase/10.1.0/firebase-storage-compat.js"></script>
     <script src="/__/firebase/10.1.0/firebase-analytics-compat.js"></script>
     <script src="/__/firebase/10.1.0/firebase-performance-compat.js"></script>
     <script src="/__/firebase/init.js?useEmulator=false"></script>
 
     <script src="../assets/js/utils/auth.js"></script>
-    <script defer src="../assets/js/src/admin/calib.html/main.js"></script>
+    <script defer src="../assets/js/src/admin/stock.html/main.js"></script>
 
 </head>
 <body>
     <header>
         <a href="../admin"><i class="fa-solid fa-arrow-left"></i></a>
-        <h2>Calib</h2>
+        <h2>Stock</h2>
     </header>
     <main>
-        <input id="calib-input" type="number">°
+        <span>Current Stock: <span id="c-stock"></span></span>
         <br>
-        <button id="btn-calib">CALIB</button>
+        <br>
+        <input id="stock-input" type="number" value="4">
+        <br>
+        <button id="btn-set">SET</button>
     </main>
 </body>
 </html>
